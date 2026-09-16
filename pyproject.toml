@@ -13,9 +13,11 @@ authors = [
   { name = "Ziyuan Huang" },
 ]
 dependencies = [
-  "scikit-learn>=1.9.1",
-  "optuna>=5.0.0",
-  "xgboost>=3.4.1",
+  # Floors are the oldest versions the test suite passes on (Python 3.10);
+  # the previous pins (scikit-learn 1.9.1 / xgboost 3.4.1) silently required 3.12.
+  "scikit-learn>=1.5",
+  "optuna>=3.6",
+  "xgboost>=2.1",
   "seedhash>=0.1.0",
 ]
 
