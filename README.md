@@ -41,15 +41,15 @@ pip install "mloptune[test]"   # plus pytest
 The latest development version straight from GitHub (no clone needed):
 
 ```bash
-pip install "git+https://github.com/melhzy/MLFactory.git"
-pip install "mloptune[test] @ git+https://github.com/melhzy/MLFactory.git"   # plus pytest
+pip install "git+https://github.com/melhzy/MLOpTune.git"
+pip install "mloptune[test] @ git+https://github.com/melhzy/MLOpTune.git"   # plus pytest
 ```
 
 Or from a local checkout, for development:
 
 ```bash
-git clone https://github.com/melhzy/MLFactory.git
-cd MLFactory
+git clone https://github.com/melhzy/MLOpTune.git
+cd MLOpTune
 pip install -e .[test]
 ```
 

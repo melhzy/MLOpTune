@@ -22,10 +22,10 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/melhzy/MLFactory"
-Repository = "https://github.com/melhzy/MLFactory"
-Issues = "https://github.com/melhzy/MLFactory/issues"
-Tutorials = "https://github.com/melhzy/MLFactory/tree/main/tutorials"
+Homepage = "https://github.com/melhzy/MLOpTune"
+Repository = "https://github.com/melhzy/MLOpTune"
+Issues = "https://github.com/melhzy/MLOpTune/issues"
+Tutorials = "https://github.com/melhzy/MLOpTune/tree/main/tutorials"
 
 [project.optional-dependencies]
 test = [
