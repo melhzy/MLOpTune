@@ -1,6 +1,6 @@
-# mloptune
+# MLOpTune
 
-mloptune is a lightweight fine-tuning framework for scikit-learn-compatible
+MLOpTune is a lightweight fine-tuning framework for scikit-learn-compatible
 models. Describe an experiment in one configuration object, call `run`, and get
 back a tuned, refitted model together with an honest test score, the Optuna
 study behind it, and the seed that reproduces all of it.
