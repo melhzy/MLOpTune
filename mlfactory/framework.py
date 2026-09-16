@@ -112,6 +112,7 @@ class FineTuner:
             raise ValueError("problem_type must be 'classification' or 'regression'.")
 
     def run(self, X: Any, y: Any) -> FineTuneResult:
+        """Tune on the validation split, then refit on train+validation for final test scoring."""
         seed = _build_seed(self.config.experiment_name)
         scoring = self.config.scoring or self._default_scoring()
         scorer = get_scorer(scoring)
