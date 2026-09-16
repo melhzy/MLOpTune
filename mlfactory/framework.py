@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import inspect
+from functools import lru_cache
 from dataclasses import dataclass, field
 from typing import Any, Mapping
 
@@ -18,6 +19,7 @@ except ImportError:  # pragma: no cover - dependency is declared, but keep impor
     XGBRegressor = None
 
 
+@lru_cache(maxsize=1)
 def _registry() -> dict[str, type]:
     registry = {name: estimator for name, estimator in all_estimators()}
     if XGBClassifier is not None:
@@ -158,7 +160,8 @@ class FineTuner:
             candidate.fit(split["X_train"], split["y_train"])
             validation_score = float(scorer(candidate, split["X_validation"], split["y_validation"]))
 
-        final_model = estimator_cls(**base_params, **best_params)
+        final_params = {**base_params, **best_params}
+        final_model = estimator_cls(**final_params)
         final_model.fit(
             self._concat(split["X_train"], split["X_validation"]),
             self._concat(split["y_train"], split["y_validation"]),
