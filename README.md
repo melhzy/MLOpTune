@@ -1,6 +1,6 @@
-# MLFactory
+# mloptune
 
-MLFactory is a lightweight fine-tuning framework for scikit-learn-compatible
+mloptune is a lightweight fine-tuning framework for scikit-learn-compatible
 models. Describe an experiment in one configuration object, call `run`, and get
 back a tuned, refitted model together with an honest test score, the Optuna
 study behind it, and the seed that reproduces all of it.
@@ -34,15 +34,15 @@ study behind it, and the seed that reproduces all of it.
 From PyPI:
 
 ```bash
-pip install mlfactory
-pip install "mlfactory[test]"   # plus pytest
+pip install mloptune
+pip install "mloptune[test]"   # plus pytest
 ```
 
 The latest development version straight from GitHub (no clone needed):
 
 ```bash
 pip install "git+https://github.com/melhzy/MLFactory.git"
-pip install "mlfactory[test] @ git+https://github.com/melhzy/MLFactory.git"   # plus pytest
+pip install "mloptune[test] @ git+https://github.com/melhzy/MLFactory.git"   # plus pytest
 ```
 
 Or from a local checkout, for development:
@@ -62,7 +62,7 @@ everything else works.
 ```python
 from sklearn.datasets import load_iris
 
-from mlfactory import FineTuneConfig, FineTuner
+from mloptune import FineTuneConfig, FineTuner
 
 dataset = load_iris()
 config = FineTuneConfig(
@@ -166,7 +166,7 @@ Bump `version` in `pyproject.toml`, then build and upload with a PyPI API
 token (`pip install build twine` once):
 
 ```bash
-python -m build                      # writes dist/mlfactory-<version>.tar.gz and .whl
+python -m build                      # writes dist/mloptune-<version>.tar.gz and .whl
 python -m twine check dist/*
 python -m twine upload dist/*        # username: __token__, password: the API token
 ```

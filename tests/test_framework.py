@@ -1,8 +1,8 @@
 import numpy as np
 from sklearn.datasets import load_diabetes, load_iris
 
-from mlfactory import FineTuneConfig, FineTuner, split_dataset
-from mlfactory.framework import _build_seed
+from mloptune import FineTuneConfig, FineTuner, split_dataset
+from mloptune.framework import _build_seed
 
 
 def test_split_dataset_creates_train_validation_test_partitions():
@@ -69,8 +69,8 @@ def test_fine_tuner_runs_regression_workflow_without_search_space():
 import pytest
 from optuna.trial import TrialState
 
-from mlfactory import framework
-from mlfactory.framework import _supports_parameter
+from mloptune import framework
+from mloptune.framework import _supports_parameter
 
 
 class _KwargsOnlyEstimator:
@@ -262,7 +262,7 @@ def test_config_snapshots_caller_mappings():
 def test_seed_fallback_matches_seedhash(monkeypatch):
     import hashlib
 
-    from mlfactory import framework
+    from mloptune import framework
 
     expected = framework._build_seed("iris-workflow")
 

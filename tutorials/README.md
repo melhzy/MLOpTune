@@ -1,4 +1,4 @@
-# MLFactory tutorials
+# mloptune tutorials
 
 Six executed Jupyter notebooks that take you from a first tuning run to a
 trustworthy evaluation. They build on each other but each one runs on its own.
