@@ -206,7 +206,9 @@ class FineTuner:
         if isinstance(left, np.ndarray):
             return np.concatenate([left, right])
         if hasattr(left, "iloc"):
-            return left.__class__.concat([left, right])  # pragma: no cover
+            import pandas as pd
+
+            return pd.concat([left, right])  # pragma: no cover
         return list(left) + list(right)
 
     @staticmethod
