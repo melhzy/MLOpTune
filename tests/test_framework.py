@@ -57,5 +57,5 @@ def test_fine_tuner_runs_regression_workflow_without_search_space():
 
     assert result.best_params == {}
     assert result.split_sizes == {"train": 264, "validation": 89, "test": 89}
-    assert result.validation_score <= 0.0
-    assert result.test_score <= 0.0
+    assert result.validation_score < 0.0
+    assert result.test_score < 0.0

@@ -4,6 +4,7 @@ import inspect
 from dataclasses import dataclass, field
 from typing import Any, Mapping
 
+import numpy as np
 import optuna
 from seedhash import SeedHashGenerator
 from sklearn.metrics import get_scorer
@@ -202,9 +203,7 @@ class FineTuner:
 
     @staticmethod
     def _concat(left: Any, right: Any) -> Any:
-        if hasattr(left, "__class__") and left.__class__.__module__.startswith("numpy"):
-            import numpy as np
-
+        if isinstance(left, np.ndarray):
             return np.concatenate([left, right])
         if hasattr(left, "iloc"):
             return left.__class__.concat([left, right])  # pragma: no cover
