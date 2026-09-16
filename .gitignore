@@ -2,3 +2,6 @@
 __pycache__/
 .pytest_cache/
 .ml_ebook_chapters/
+dist/
+build/
+.ipynb_checkpoints/

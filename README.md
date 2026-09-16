@@ -31,9 +31,26 @@ study behind it, and the seed that reproduces all of it.
 
 ## Installation
 
+From PyPI:
+
 ```bash
-pip install -e .          # library
-pip install -e .[test]    # plus pytest
+pip install mlfactory
+pip install "mlfactory[test]"   # plus pytest
+```
+
+The latest development version straight from GitHub (no clone needed):
+
+```bash
+pip install "git+https://github.com/melhzy/MLFactory.git"
+pip install "mlfactory[test] @ git+https://github.com/melhzy/MLFactory.git"   # plus pytest
+```
+
+Or from a local checkout, for development:
+
+```bash
+git clone https://github.com/melhzy/MLFactory.git
+cd MLFactory
+pip install -e .[test]
 ```
 
 Requires Python 3.10 or newer. On macOS, XGBoost needs the OpenMP runtime
@@ -142,6 +159,19 @@ The test suite covers the split, the workflow with and without a search
 space, XGBoost seeding, reproducibility, config validation, model/problem
 type checks, failing-trial handling, sparse inputs and the FIPS seed fallback.
 The XGBoost test is skipped when `xgboost` cannot be loaded.
+
+### Releasing to PyPI
+
+Bump `version` in `pyproject.toml`, then build and upload with a PyPI API
+token (`pip install build twine` once):
+
+```bash
+python -m build                      # writes dist/mlfactory-<version>.tar.gz and .whl
+python -m twine check dist/*
+python -m twine upload dist/*        # username: __token__, password: the API token
+```
+
+Upload to TestPyPI first with `--repository testpypi` if you want to rehearse.
 
 ## Platform support
 

@@ -21,6 +21,12 @@ dependencies = [
   "seedhash>=0.1.0",
 ]
 
+[project.urls]
+Homepage = "https://github.com/melhzy/MLFactory"
+Repository = "https://github.com/melhzy/MLFactory"
+Issues = "https://github.com/melhzy/MLFactory/issues"
+Tutorials = "https://github.com/melhzy/MLFactory/tree/main/tutorials"
+
 [project.optional-dependencies]
 test = [
   "pytest>=8.4.2",
