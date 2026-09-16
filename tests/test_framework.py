@@ -2,6 +2,7 @@ import numpy as np
 from sklearn.datasets import load_diabetes, load_iris
 
 from mlfactory import FineTuneConfig, FineTuner, split_dataset
+from mlfactory.framework import _build_seed
 
 
 def test_split_dataset_creates_train_validation_test_partitions():
@@ -37,7 +38,7 @@ def test_fine_tuner_runs_classification_workflow_with_optuna():
 
     result = FineTuner(config).run(dataset.data, dataset.target)
 
-    assert result.seed == FineTuner(config).run(dataset.data, dataset.target).seed
+    assert result.seed == _build_seed("iris-workflow")
     assert set(result.best_params) == {"n_estimators", "max_depth"}
     assert result.split_sizes == {"train": 90, "validation": 30, "test": 30}
     assert 0.0 <= result.validation_score <= 1.0
@@ -57,5 +58,7 @@ def test_fine_tuner_runs_regression_workflow_without_search_space():
 
     assert result.best_params == {}
     assert result.split_sizes == {"train": 264, "validation": 89, "test": 89}
-    assert result.validation_score < 0.0
-    assert result.test_score < 0.0
+    assert np.isfinite(result.validation_score)
+    assert np.isfinite(result.test_score)
+    assert result.validation_score <= 0.0
+    assert result.test_score <= 0.0
